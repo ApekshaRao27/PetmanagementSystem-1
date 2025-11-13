@@ -1,0 +1,58 @@
+.home-container {
+  text-align: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.reminder-card {
+  background-color: #fff3e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.reminder-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.reminder-inputs select,
+.reminder-inputs input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.reminder-inputs button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff9800;
+  color: white;
+  cursor: pointer;
+}
+
+.reminder-inputs button:hover {
+  background-color: #f57c00;
+}
+
+.reminder-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reminder-list li {
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ffe0b2;
+}
+
+.reminder-list li.triggered {
+  background-color: #c8e6c9;
+  text-decoration: line-through;
+}

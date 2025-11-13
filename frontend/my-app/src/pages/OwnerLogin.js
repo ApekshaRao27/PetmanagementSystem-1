@@ -19,8 +19,11 @@ function OwnerLogin() {
 
       const data = await res.json();
       setMessage(data.message || data.error);
+       
       if (res.ok) {
-        navigate('/home');
+       
+        localStorage.setItem("user", JSON.stringify(data.user));
+         navigate('/home');
       }
     } catch (error) {
       setMessage("Error connecting to server");
