@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Adopt.css";
-
+import Navbar from "./Navbar";
 const Adopt = () => {
   const [pets, setPets] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -95,6 +95,7 @@ const Adopt = () => {
 
   return (
     <div className="adopt-container">
+      <Navbar />
       <h2>🐶 Pets Available for Adoption</h2>
 
       <button className="post-btn" onClick={() => setShowForm(!showForm)}>
@@ -156,28 +157,30 @@ const Adopt = () => {
                 <p><strong>Location:</strong> {pet.location}</p>
 
                 <p>{pet.description}</p>
-                 <button
-  className="btn btn-outline-success mt-2"
-  onClick={() => window.open(`tel:${pet.contact_number}`)}
->
-  📞 Call Owner
-</button>
+                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+  <button
+    className="btn btn-outline-success"
+    onClick={() => window.open(`tel:${pet.contact_number}`)}
+  >
+    Call Owner
+  </button>
 
+  {pet.email === email && (
+    <button
+      onClick={() => handleDeletePet(pet.id)}
+      className="delete-btn btn btn-outline-danger"
+    >
+      Mark as Sold
+    </button>
+  )}
+</div>
 
-                {/* Show delete button only for owner */}
-                {pet.email === email && (
-                  <button
-                    onClick={() => handleDeletePet(pet.id)}
-                    className="delete-btn"
-                  >
-                    Mark as Sold 🏷️
-                  </button>
-                )}
+              
               </div>
             </div>
           ))
         ) : (
-          <p>No pets available right now 😺</p>
+          <p>No pets available right now</p>
         )}
       </div>
     </div>

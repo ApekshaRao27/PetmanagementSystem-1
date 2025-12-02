@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { API_URL } from '../api';
+import { useNavigate } from 'react-router-dom';
 function DoctorLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -17,6 +18,9 @@ function DoctorLogin() {
 
       const data = await res.json();
       setMessage(data.message || data.error);
+      if (res.ok){
+        navigate('/doctor-dashboard');
+      }
     } catch (error) {
       setMessage("Error connecting to server");
     }

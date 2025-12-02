@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Navbar from "./Navbar";
 function Home() {
   const [reminders, setReminders] = useState([]);
   const [type, setType] = useState("");
@@ -42,35 +42,12 @@ function Home() {
   return (
     <div>
       {/* Navbar */}
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          backgroundColor: "#ffcc80",
-          padding: "15px",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        <Link to="/vets" style={{ textDecoration: "none", color: "#333" }}>
-          Vets
-        </Link>
-        <Link to="/adopt" style={{ textDecoration: "none", color: "#333" }}>
-          Adopt
-        </Link>
-        <Link to="/shop" style={{ textDecoration: "none", color: "#333" }}>
-          Shop
-        </Link>
-        <Link to="/tips" style={{ textDecoration: "none", color: "#333" }}>
-          Tips
-        </Link>
-      </nav>
+      <Navbar />
 
       {/* Welcome Section */}
       <div style={{ textAlign: "center", marginTop: "40px" }}>
         <h2>Welcome to Pet Management 🐾</h2>
-        <p>Manage your pets easily — care, adoption, and reminders in one place!</p>
+        <p>Manage your pets easily care, adoption, and reminders in one place!</p>
       </div>
 
       {/* Reminder Section */}
@@ -78,7 +55,7 @@ function Home() {
         style={{
           textAlign: "center",
           marginTop: "40px",
-          backgroundColor: "#fff3e0",
+          backgroundColor: "#e3d1d5ff",
           padding: "20px",
           borderRadius: "10px",
           width: "80%",
@@ -136,7 +113,7 @@ function Home() {
               style={{
                 margin: "8px 0",
                 fontSize: "18px",
-                backgroundColor: r.triggered ? "#c8e6c9" : "#ffe0b2",
+                backgroundColor: r.triggered ? "#c8e6c9" : "#ffffffff",
                 padding: "8px",
                 borderRadius: "6px",
                 textDecoration: r.triggered ? "line-through" : "none",
